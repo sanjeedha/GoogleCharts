@@ -1,0 +1,284 @@
+<html>
+     <head>
+        <title> Pizza Order Profile</title>
+        
+     <style>
+    
+         #heading{
+             padding-bottom: 40px;
+             font-size: 1.833333333em
+             font-style: normal;
+             font-family: DominosFont, 'Arial Narrow', Arial, Helvetica, sans-serif;
+             font-style: normal;
+             text-transform: uppercase;
+             color: #0078ae;
+         }
+                  
+         .card--overlay {
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            width: 1300px;
+            margin: 1.25em auto;
+            padding-left: 1.25em;
+            padding-bottom: 20em; 
+            position: relative;
+            overflow: hidden;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px #333;
+            background-color: #fff;
+        }
+         
+        a{
+            color:white;
+            text-decoration: none !important;
+         }
+         
+         h2{
+             padding-top: 30px;
+         }
+
+
+         body {
+            text-align: center;
+            padding-top: 100px;
+            background: black;
+            font-family: DominosFont, 'Arial Narrow', Arial, Helvetica, sans-serif;
+         }
+
+        .breadcrumb {
+            /*centering*/
+            display: inline-block;
+            overflow: hidden;
+            border-radius: 40px;
+            /*Lets add the numbers for each link using CSS counters. flag is the name of the counter. to be defined using counter-reset in the parent element of the links*/
+            counter-reset: flag; 
+        }
+
+        .breadcrumb a {
+            text-decoration: none;
+            outline: none;
+            display: block;
+            float: left;
+            font-size: 20px;
+            line-height: 36px;
+            color: white;
+            /*need more margin on the left of links to accomodate the numbers*/
+            padding: 12px 40px 20px 80px;
+
+            background: -webkit-linear-gradient(top,#0078ae 0,#005e89 100%);
+            position: relative;
+        }
+        .breadcrumb a:first-child {
+            padding-left: 46px;
+            border-radius: 10px 0px 0px 0px; /*to match with the parent's radius*/
+        }
+        .breadcrumb a:first-child:before {
+            left: 14px;
+        }
+        .breadcrumb a:last-child {
+            border-radius: 0 5px 5px 0; /*this was to prevent glitches on hover*/
+            padding-right: 40px;
+        }
+
+        .breadcrumb a.active, .breadcrumb a:hover{
+
+            background: #f24537;
+        }
+        .breadcrumb a.active:after, .breadcrumb a:hover:after {
+            background: #f24537;
+
+        }
+
+        .breadcrumb a:after {
+            content: '';
+            position: absolute;
+            top: 15; 
+            right: -18px; 
+            width: 40px; 
+            height: 36px;
+            transform: scale(1.35) rotate(45deg);
+            z-index: 1;
+            background: -webkit-linear-gradient(top,#0078ae 0,#005e89 100%);
+            box-shadow: 
+                2px -2px 0 2px rgba(0, 0, 0, 0.4), 
+                3px -3px 0 2px rgba(255, 255, 255, 0.1);
+            border-radius: 0 0px 0 50px;
+        }
+
+        .breadcrumb a:last-child:after {
+            content: none;
+        }
+         td{
+             padding-left: 20px;
+             padding-top: 10px;
+             padding-right: 20px;
+             width: 400px;
+             border-right: solid #ccc; 
+             padding-bottom: 30px;
+             font-family: sans-serif;
+         }
+         #pizbody{
+             background: #E6E6E6;
+             margin-left: 70px;
+             border-radius: 10px;
+             width:1120px;
+             height:600px;
+         }
+         th{
+             margin-right: 100px;
+            
+         }
+         li{
+            list-style-type: none;
+         }
+         
+         #glutten{
+             padding-top: 35px;
+         }
+          
+        
+        .myButton {
+            -moz-box-shadow:inset 0px 0px 0px 0px #f5978e;
+            -webkit-box-shadow:inset 0px 0px 0px 0px #f5978e;
+            box-shadow:inset 0px 0px 0px 0px #f5978e;
+            background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #f24537), color-stop(1, #c62d1f));
+            background:-moz-linear-gradient(top, #f24537 5%, #c62d1f 100%);
+            background:-webkit-linear-gradient(top, #f24537 5%, #c62d1f 100%);
+            background:-o-linear-gradient(top, #f24537 5%, #c62d1f 100%);
+            background:-ms-linear-gradient(top, #f24537 5%, #c62d1f 100%);
+            background:linear-gradient(to bottom, #f24537 5%, #c62d1f 100%);
+            filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#f24537', endColorstr='#c62d1f',GradientType=0);
+            background-color:#f24537;
+            -moz-border-radius:24px;
+            -webkit-border-radius:24px;
+            border-radius:24px;
+            border:3px solid #d02718;
+            display:inline-block;
+            cursor:pointer;
+            color:#ffffff;
+            font-family:Arial;
+            font-size:20px;
+            font-weight:bold;
+            padding:13px 63px;
+            text-decoration:none;
+            text-shadow:0px 1px 0px #810e05;
+        }
+        .myButton:hover {
+            background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #c62d1f), color-stop(1, #f24537));
+            background:-moz-linear-gradient(top, #c62d1f 5%, #f24537 100%);
+            background:-webkit-linear-gradient(top, #c62d1f 5%, #f24537 100%);
+            background:-o-linear-gradient(top, #c62d1f 5%, #f24537 100%);
+            background:-ms-linear-gradient(top, #c62d1f 5%, #f24537 100%);
+            background:linear-gradient(to bottom, #c62d1f 5%, #f24537 100%);
+            filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#c62d1f', endColorstr='#f24537',GradientType=0);
+            background-color:#c62d1f;
+        }
+        .myButton:active {
+            position:relative;
+            top:1px;
+        }
+         button{
+             margin-right: 40px;
+         }
+
+
+         
+     </style>   
+        
+     </head>
+    
+    
+    
+    <body>
+        <form>
+        <div id = "first" class = "card--overlay" >
+            <div id = "heading">
+                <h1>Pizza Builder</h1>
+            </div>
+            <div class="breadcrumb">
+                <a href="#" class="active">SIZE AND CRUST</a>
+                <a href="cheese.html">CHEESE AND SAUCE</a>
+                <a href="#">TOPPINGS</a>
+            </div>
+            <div id = "pizbody">
+                <div>
+                    <h2>CHOOSE SIZE & CRUST</h2>
+                    
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>HAND TOSSED</th>
+                                    <th>HANDMADE PAN</th>
+                                    <th>CRUNCHY THIN CRUST</th>
+                                    <th>BROOKLYN STYLE</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <p>Garlic-seasoned crust with a rich, buttery taste.</p>
+                                        <ul>
+                                            <li><input id="radio-a" type="radio" name="handtossed" value="small"> Small(10")</li>
+                                            <li><input id="radio-b" type="radio" name="handtossed" value="medium"> Medium(12")</li>
+                                            <li><input id="radio-c" type="radio" name="handtossed" value="large"> Large(14")</li>
+                                            <li><input id="radio-d" type="radio" name="handtossed" value="xlarge"> X-Large(16")</li>
+                                        </ul>
+                                    </td>
+                                    
+                                    <td>
+                                       <p> Two layers of cheese, toppings to the edge, and a crust that bakes up golden and crispy with a buttery taste.</p>
+                                          <ul>                  
+                                            <li><input id="radio-e" type="radio" name="handtossed" value="medium"> Medium(12")</li>     
+                                         </ul>
+                                    </td>
+                                    <td>
+                                       <p>Thin enough for the optimum crispy to crunchy ratio.</p> 
+                                         <ul> 
+                                            <li><input id="radio-f" type="radio" name="handtossed" value="medium"> Medium(12")</li>
+                                            <li><input id="radio-g" type="radio" name="handtossed" value="large"> Large(14")</li>
+                                        </ul>
+                                    </td>
+                                    <td>
+                                       <p>Hand stretched to the big,thin and perfectly foldable.</p> 
+                                       <ul>
+                                            <li><input id="radio-h" type="radio" name="handtossed" value="large"> Large(14")</li>
+                                            <li><input id="radio-i" type="radio" name="handtossed" value="xlarge"> X-Large(16")</li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th id="glutten">GLUTTEN FREE CRUST</th>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p>Domino's pizza made with a Gluten Free Crust.</p>
+                                        <ul>
+                                            <li><input id="radio-j" type="radio" name="handtossed" value="small"> Small(10")</li>
+                                        </ul>
+                                    </td>
+                                    
+                                </tr>
+                                
+                            </tbody>
+                        </table>
+                    <button class="myButton"><a href="cheese.html">BUILD</a></button>
+                   
+                    <button id="cancel" class="myButton" type="reset">CANCEL</button>
+                    
+
+                </div>
+            </div>
+                 
+        </div>
+        </form>
+         <script type="text/javascript">
+    document.getElementById("cancel").addEventListener('click', function () {["radio-a", "radio-b", "radio-c", "radio-d", "radio-e", "radio-f", "radio-g", "radio-h","radio-i","radio-j"].forEach(function(id) {
+        document.getElementById("cancel").checked = false;
+      });
+      return false;
+    })
+  </script>
+
+    </body>
+</html>

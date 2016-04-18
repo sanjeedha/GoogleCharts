@@ -1,0 +1,6 @@
+{
+           "cols": [
+               {"label":"Toppings","type":"string"},
+               {"label":"Total","type":"number"}
+             ],
+        "rows": [{"c":[{"v": "banana"}, {"v": 3}]},{"c":[{"v": "beef"}, {"v": 4}]},{"c":[{"v": "garlic"}, {"v": 1}]},{"c":[{"v": "pineapple"}, {"v": 4}]},{"c":[{"v": "steak"}, {"v": 3}]},]}

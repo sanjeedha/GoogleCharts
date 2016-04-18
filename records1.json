@@ -1,0 +1,7 @@
+{
+             "cols": [
+                 {"label":"Top1","type":"string"},
+                 {"label":"Top2","type":"string"},
+                 {"label":"weight","type":"number"}
+               ],
+          "rows": [{"c":[{"v": "banana"},{"v": "pineapple"}, {"v": 3}]},{"c":[{"v": "beef"},{"v": "banana"}, {"v": 3}]},{"c":[{"v": "beef"},{"v": "garlic"}, {"v": 1}]},{"c":[{"v": "beef"},{"v": "pineapple"}, {"v": 4}]},{"c":[{"v": "beef"},{"v": "steak"}, {"v": 3}]},{"c":[{"v": "garlic"},{"v": "pineapple"}, {"v": 1}]},{"c":[{"v": "steak"},{"v": "banana"}, {"v": 2}]},{"c":[{"v": "steak"},{"v": "garlic"}, {"v": 1}]},{"c":[{"v": "steak"},{"v": "pineapple"}, {"v": 3}]},]}
